@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: backend_rest_api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/backend_rest_api_db
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none          # schema is owned by Liquibase, not Hibernate
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: false
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true
+server:
+  port: 8083
